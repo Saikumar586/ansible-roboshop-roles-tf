@@ -1,0 +1,29 @@
+# i need to refer common folder mentioned tasks here.
+#defined server called one role  like catalogue.
+# common also anoher role..
+# here we need to import mentioned catalogue tasks here... like nodejs.yaml
+- name: install nodejs
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: nodejs 
+
+- name: setup app
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: setup-app
+  
+- name: install dependencies
+  ansible.builtin.command: npm install
+  args:
+     chdir: /app
+
+- name: load schema
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: load-mongo-schema
+
+- name: systemd setup
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: systemd-setup
+  

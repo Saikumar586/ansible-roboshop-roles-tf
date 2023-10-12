@@ -1,0 +1,5 @@
+CATALOGUE_HOST: catalogue.saidev.world
+USER_HOST: user.saidev.world
+SHIPPING_HOST: shipping.saidev.world
+CART_HOST: cart.saidev.world
+PAYMENT_HOST: payment.saidev.world

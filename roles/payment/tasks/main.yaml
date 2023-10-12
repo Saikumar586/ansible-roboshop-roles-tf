@@ -1,0 +1,23 @@
+- name: install python
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: python
+
+- name: setup application
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: setup-app
+
+
+- name: Install dependencies
+  ansible.builtin.command: pip3.6 install -r requirements.txt
+  args:
+    chdir: /app
+
+  
+- name: systemd setup
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: systemd-setup
+
+
